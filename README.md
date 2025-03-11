@@ -1,6 +1,7 @@
 # UBUNTU_MOD
 💀🫴🏻📱💻
-
+cd
+rm -rf UBUNTU_MOD
 git clone https://github.com/hozoowhitehat/UBUNTU_MOD
 
 cd UBUNTU_MOD
