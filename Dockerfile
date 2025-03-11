@@ -1,9 +1,11 @@
 FROM dorowu/ubuntu-desktop-lxde-vnc:latest
 
-# Update dan perbaiki missing keys
-RUN apt-get update --allow-releaseinfo-change \
-    && apt-get install -y wget gnupg2 software-properties-common \
-    && wget -qO - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
+# Update package list dan tambahkan public key yang hilang
+RUN apt-get update --allow-releaseinfo-change && apt-get install -y \
+    wget gnupg2 software-properties-common 
+
+# Jika repository Google Chrome tidak dibutuhkan, bisa dinonaktifkan
+RUN rm -f /etc/apt/sources.list.d/google-chrome.list \
     && apt-get update
 
 # Install pulseaudio untuk dukungan suara
